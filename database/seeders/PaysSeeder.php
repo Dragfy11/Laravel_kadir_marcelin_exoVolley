@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PaysSeeder extends Seeder
 {
@@ -13,6 +14,23 @@ class PaysSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('pays')->insert([
+            [
+                'pays' => 'Turquie',
+                'continent' => 'Asie'
+            ],
+            [
+                'pays' => 'Etat-Unies',
+                'continent' => 'Amérique du Nord'
+            ],
+            [
+                'pays' => 'Espagne',
+                'continent' => 'Europe'
+            ],
+            [
+                'pays' => 'Rien',
+                'continent' => 'Rien'
+            ],
+        ]);
     }
 }

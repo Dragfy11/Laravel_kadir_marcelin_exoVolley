@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipe;
 use App\Models\Pays;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class PaysController extends Controller
      */
     public function index()
     {
-        //
+        $pays = Pays::all();
+        return view('pages.Coach.equipeCoach', compact('pays'));
+    
     }
 
     /**
@@ -35,7 +38,23 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validationPays=$request->validate([
+            "equipe" => "string|required",
+            "coach" => "string|required",
+            "ville" => "string|required",
+            "numbres" => "string|required",
+            "pays_id" => "required",
+            "membres" => "required",
+        ]);
+
+        $team=new Equipe;
+        $team->equipe=$request->equipe;
+        $team->coach=$request->coach;
+        $team->ville=$request->ville;
+        $team->nombres=$request->nombres;
+        $team->pays_id=$request->pays_id;
+        $team->membres=0;
+        $team->save();
     }
 
     /**

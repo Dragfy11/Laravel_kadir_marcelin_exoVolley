@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipe;
 use App\Models\Poste;
+use App\Models\Profil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PosteController extends Controller
 {
@@ -14,7 +17,87 @@ class PosteController extends Controller
      */
     public function index()
     {
-        //
+        $teamHasard = Equipe::inRandomOrder()->limit(10)->get();
+        $profile= Profil::all();
+
+
+        $dataH= DB::table('profils')
+        ->where('genre','Homme')
+        ->select('nom')
+        ->get();
+        $teamHasardJ= DB::table('profils')
+        ->where('equipes_id',1)
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+        $teamHasardE= DB::table('profils')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+        $teamHasardNR= DB::table('equipes')
+        ->where('membres', '!=','nombres')
+        ->inRandomOrder()
+        ->limit(2)
+        ->get();
+        $girl= DB::table('profils')
+        ->where('genre','Femme')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(5)
+        ->get();
+        $men= DB::table('profils')
+        ->where('genre','Homme')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(5)
+        ->get();
+        $team= Equipe::all();
+
+
+        return view('pages.Player.dashboardPlayer', compact('dataH','fille','homme','profil','equipe','teamHasardNR', 'teamHasardE','teamHasard', 'teamHasardJ'));
+    }
+    public function index2()
+    {
+        $teamHasard = Equipe::inRandomOrder()->limit(10)->get();
+        $profile= Profil::all();
+
+
+        $dataH= DB::table('profils')
+        ->where('genre','Homme')
+        ->select('nom')
+        ->get();
+        $teamHasardJ= DB::table('profils')
+        ->where('equipes_id',1)
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+        $teamHasardE= DB::table('profils')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+        $teamHasardNR= DB::table('equipes')
+        ->where('membres', '!=','nombres')
+        ->inRandomOrder()
+        ->limit(2)
+        ->get();
+        $girl= DB::table('profils')
+        ->where('genre','Femme')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(5)
+        ->get();
+        $men= DB::table('profils')
+        ->where('genre','Homme')
+        ->whereNotIn('equipes_id', [1])
+        ->inRandomOrder()
+        ->limit(5)
+        ->get();
+        $team= Equipe::all();
+
+
+        return view('pages.Coach.dashboardCoach', compact('dataH','girl','men','profile','team','teamHasardNR', 'teamHasardE','teamHasard', 'teamHasardJ'));
     }
 
     /**
