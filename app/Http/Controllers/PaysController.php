@@ -16,8 +16,7 @@ class PaysController extends Controller
     public function index()
     {
         $pays = Pays::all();
-        return view('pages.Coach.equipeCoach', compact('pays'));
-    
+        return view('pages.coachs.TeamCoach', compact('pays'));
     }
 
     /**
@@ -27,7 +26,7 @@ class PaysController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -38,23 +37,19 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
-        $validationPays=$request->validate([
-            "equipe" => "string|required",
-            "coach" => "string|required",
-            "ville" => "string|required",
-            "numbres" => "string|required",
-            "pays_id" => "required",
-            "membres" => "required",
-        ]);
 
-        $team=new Equipe;
-        $team->equipe=$request->equipe;
-        $team->coach=$request->coach;
-        $team->ville=$request->ville;
-        $team->nombres=$request->nombres;
-        $team->pays_id=$request->pays_id;
-        $team->membres=0;
-        $team->save();
+        $equipe=new Equipe();
+        $equipe->equipe=$request->equipe;
+        $equipe->coach=$request->coach;
+        $equipe->ville=$request->ville;
+        $equipe->nombres=$request->nombres;
+        $equipe->pays_id=$request->pays_id;
+        $equipe->membres=0;
+        $equipe->save();
+
+        
+
+        return redirect()->back();
     }
 
     /**

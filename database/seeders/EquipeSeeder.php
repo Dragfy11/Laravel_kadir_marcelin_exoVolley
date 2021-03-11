@@ -39,7 +39,7 @@ class EquipeSeeder extends Seeder
                  'equipe' => 'Real',
                  'ville' => 'Madrid',
                  'nombres' => '5',
-                 'pays_id' => 2,
+                 'pays_id' => 3,
                  'membres' => 2,
 
              ],

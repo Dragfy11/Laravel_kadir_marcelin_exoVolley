@@ -11,61 +11,48 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $profile =  Profil::all();
-        $team = Equipe::all();
-        $posts =  Poste::all();
+        $profil =  Profil::all();
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
         $counter = 0;
-        return view('pages.Player.equipePlayer', compact('counter','profile','team','posts'));
+        return view('pages.joueurs.teamPlayer', compact('counter','profil','equipes','postes'));
     }
+
     public function index2()
     {
 
-        $profile =  Profil::all();
-        $team = Equipe::all();
-        $posts =  Poste::all();
-        return view('pages.Player.listePlayer', compact('profile','team','posts'));
+        $profil =  Profil::all();
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
+        return view('pages.joueurs.listPlayer', compact('profil','equipes','postes'));
     }
     public function index3()
     {
-        $profile =  Profil::all();
-        $team = Equipe::all();
-        $posts =  Poste::all();
+        $profil =  Profil::all();
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
         $counter = 0;
-        return view('pages.Coach.listeJoueurCoach', compact('counter','profile','team','posts'));
+        return view('pages.coachs.listPlayerCoach', compact('counter','profil','equipes','postes'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $pays = Pays::all();
-        $team = Equipe::all();
-        $posts = Poste::all();
-        return view('pages.Player.createPlayer', compact('pays','team','posts'));
+        $equipes = Equipe::all();
+        $postes = Poste::all();
+        return view('pages.joueurs.createPlayer', compact('pays','equipes','postes'));
+    
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
+
         $validateForm = $request->validate([
             "nom" => "string|required",
             "prenom" => "string|required",
-            "age" => "string|required",
+            "age" => "integer|required",
             "numeros" => "string|required",
             "email" => "required",
             "genre" => "required",
@@ -73,23 +60,24 @@ class ProfilController extends Controller
             "equipes_id" => "required",
             "poste_id" => "required",
         ]);
-        $profile=new Profil;
 
-        $profile->nom=$request->nom;
-        $profile->prenom=$request->prenom;
-        $profile->age=$request->age;
-        $profile->numeros=$request->numeros;
-        $profile->email=$request->email;
-        $profile->genre=$request->genre;
-        $profile->origin=$request->origin;
-        $profile->photo=$request->file('photo')->hashName();
-        $profile->equipes_id=$request->equipes_id;
-        $profile->poste_id=$request->poste_id;
+        $profil=new Profil;
+
+        $profil->nom=$request->nom;
+        $profil->prenom=$request->prenom;
+        $profil->age=$request->age;
+        $profil->numeros=$request->numeros;
+        $profil->email=$request->email;
+        $profil->genre=$request->genre;
+        $profil->origin=$request->origin;
+        $profil->photo=$request->file('photo')->hashName();
+        $profil->equipes_id=$request->equipes_id;
+        $profil->poste_id=$request->poste_id;
         
-        if($request->equipes_id==$profile->equipes_id && $profile->equipe->membres<$profile->equipe->nombres){
+        if($request->equipes_id==$profil->equipes_id && $profil->equipe->membres<$profil->equipe->nombres){
             
-        $profile->equipe->increment("membres", 1);
-        $profile->save();
+        $profil->equipe->increment("membres", 1);
+        $profil->save();
         $request->file('photo')->storePublicly('images','public');
 
         return redirect()->back();
@@ -98,21 +86,19 @@ class ProfilController extends Controller
 
             return redirect()->back()->with('status', "L'équipe est au complet!")->withInput();
         }
+       
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Profil  $profil
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Profil $profil)
-    {
-        $profile =  Profil::find($id);
-        $team = Equipe::all();
-        $posts =  Poste::all();
 
-        return view('pages.Player.show.showPlayer', compact('profil','team','posts'));
+    public function show($id)
+    {
+        $profil =  Profil::find($id);
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
+
+        return view('pages.joueurs.show.showPlayer', compact('profil','equipes','postes'));
+    
     }
 
     /**
@@ -121,13 +107,14 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profil $profil)
+    public function edit($id)
     {
-        $profile =  Profil::find($id);
-        $team = Equipe::all();
-        $posts =  Poste::all();
+        $profil =  Profil::find($id);
+        $equipes = Equipe::all();
+        $postes =  Poste::all();
 
-        return view('pages.Player.editPlayer', compact('profil','team','posts'));
+        return view('pages.joueurs.editPlayer', compact('profil','equipes','postes'));
+    
     }
 
     /**
@@ -137,7 +124,7 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profil $profil)
+    public function update(Request $request, $id)
     {
         $validateForm = $request->validate([
             "nom" => "required",
@@ -151,22 +138,22 @@ class ProfilController extends Controller
             "poste_id" => "required",
         ]);
 
-        $profile= Profil::find($id);
+        $profil= Profil::find($id);
 
-        $profile->nom=$request->nom;
-        $profile->prenom=$request->prenom;
-        $profile->age=$request->age;
-        $profile->numeros=$request->numeros;
-        $profile->email=$request->email;
-        $profile->genre=$request->genre;
-        $profile->origin=$request->origin;
-        $profile->photo=$request->file('photo')->hashName();
-        $profile->equipes_id=$request->equipes_id;
-        $profile->poste_id=$request->poste_id;
+        $profil->nom=$request->nom;
+        $profil->prenom=$request->prenom;
+        $profil->age=$request->age;
+        $profil->numeros=$request->numeros;
+        $profil->email=$request->email;
+        $profil->genre=$request->genre;
+        $profil->origin=$request->origin;
+        $profil->photo=$request->file('photo')->hashName();
+        $profil->equipes_id=$request->equipes_id;
+        $profil->poste_id=$request->poste_id;
 
-        $profile->save();
+        $profil->save();
 
-        Storage::disk('public')->delete('images/' . $profile->photo);
+        Storage::disk('public')->delete('images/' . $profil->photo);
 
         $request->file('photo')->storePublicly('images','public');
 
@@ -179,13 +166,13 @@ class ProfilController extends Controller
      * @param  \App\Models\Profil  $profil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profil $profil)
+    public function destroy($id)
     {
-        $Profile = Profil::find($id);
-        $Profile->equipe->decrement("membres", 1);
-        $Profile->delete();
+        $Profil = Profil::find($id);
+        $Profil->equipe->decrement("membres", 1);
+        $Profil->delete();
         
-        Storage::disk('public')->delete('images/' . $Profile->photo);
+        Storage::disk('public')->delete('images/' . $Profil->photo);
 
         return redirect()->back();
     }

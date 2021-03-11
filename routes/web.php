@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\PaysController;
+use App\Http\Controllers\PosteController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*

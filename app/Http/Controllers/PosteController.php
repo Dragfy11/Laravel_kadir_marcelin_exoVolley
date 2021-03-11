@@ -18,7 +18,7 @@ class PosteController extends Controller
     public function index()
     {
         $teamHasard = Equipe::inRandomOrder()->limit(10)->get();
-        $profile= Profil::all();
+        $profil= Profil::all();
 
 
         $dataH= DB::table('profils')
@@ -40,27 +40,28 @@ class PosteController extends Controller
         ->inRandomOrder()
         ->limit(2)
         ->get();
-        $girl= DB::table('profils')
+        $fille= DB::table('profils')
         ->where('genre','Femme')
         ->whereNotIn('equipes_id', [1])
         ->inRandomOrder()
         ->limit(5)
         ->get();
-        $men= DB::table('profils')
+        $homme= DB::table('profils')
         ->where('genre','Homme')
         ->whereNotIn('equipes_id', [1])
         ->inRandomOrder()
         ->limit(5)
         ->get();
-        $team= Equipe::all();
+        $equipe= Equipe::all();
 
 
-        return view('pages.Player.dashboardPlayer', compact('dataH','fille','homme','profil','equipe','teamHasardNR', 'teamHasardE','teamHasard', 'teamHasardJ'));
+        return view('pages.joueurs.dashboardPlayer', compact('dataH','fille','homme','profil','equipe','teamHasardNR', 'teamHasardE','teamHasard', 'teamHasardJ'));
     }
+
     public function index2()
     {
         $teamHasard = Equipe::inRandomOrder()->limit(10)->get();
-        $profile= Profil::all();
+        $profil= Profil::all();
 
 
         $dataH= DB::table('profils')
@@ -82,22 +83,22 @@ class PosteController extends Controller
         ->inRandomOrder()
         ->limit(2)
         ->get();
-        $girl= DB::table('profils')
+        $fille= DB::table('profils')
         ->where('genre','Femme')
         ->whereNotIn('equipes_id', [1])
         ->inRandomOrder()
         ->limit(5)
         ->get();
-        $men= DB::table('profils')
+        $homme= DB::table('profils')
         ->where('genre','Homme')
         ->whereNotIn('equipes_id', [1])
         ->inRandomOrder()
         ->limit(5)
         ->get();
-        $team= Equipe::all();
+        $equipe= Equipe::all();
 
 
-        return view('pages.Coach.dashboardCoach', compact('dataH','girl','men','profile','team','teamHasardNR', 'teamHasardE','teamHasard', 'teamHasardJ'));
+        return view('pages.coachs.dashboardCoach', compact('dataH','fille','homme','profil','equipe','teamHasardNR', 'teamHasardE','teamHasard', 'teamHasardJ'));
     }
 
     /**

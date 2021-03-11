@@ -10,14 +10,14 @@
 <body class="bg-dark">
 
   
-    <h1 class="my-5 text-center text-white">Bienvenue sur VolleyBall Planner</h1>
+    <h1 class="my-5 text-center text-danger">Bienvenue sur VolleyBall Planner</h1>
     <h2 class="text-center text-white">Créez, modifiez et supprimez vos équipes de volleyball</h2>
 
     <div class="row my-5">
 
       <div class="col-6 d-flex align-items-center justify-content-center">
         <div class="col">
-            <h3 class="text-white text-center">Joueur</h3>
+            <h3 class="text-white text-center ">Joueur</h3>
             <a  href="/joueur">
                 <img src="{{asset('img/player.jpg')}}" alt="" class="w-100 h-100">
             </a>

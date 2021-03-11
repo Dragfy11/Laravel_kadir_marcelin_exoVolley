@@ -6,8 +6,8 @@ use App\Models\Equipe;
 use App\Models\Pays;
 use App\Models\Poste;
 use App\Models\Profil;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EquipeController extends Controller
 {
@@ -18,7 +18,7 @@ class EquipeController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -39,6 +39,7 @@ class EquipeController extends Controller
      */
     public function store(Request $request)
     {
+
         //
     }
 
@@ -48,13 +49,15 @@ class EquipeController extends Controller
      * @param  \App\Models\Equipe  $equipe
      * @return \Illuminate\Http\Response
      */
-    public function show(Equipe $equipe)
+    public function show($id)
     {
-        $profile =  Profil::all();
-        $team=Equipe::find($id);
-        $posts =  Poste::all();
+        $profil =  Profil::all();
+        $equipes = Equipe::find($id);
+        $postes =  Poste::all();
         $counter = 1;
-        return view('pages.Player.show.showTeam', compact('counter','profile','team','posts'));
+        return view('pages.joueurs.show.showTeam', compact('counter','profil','equipes','postes'));
+    
+
     }
 
     /**
