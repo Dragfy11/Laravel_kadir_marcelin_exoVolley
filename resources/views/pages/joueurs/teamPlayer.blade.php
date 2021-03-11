@@ -7,11 +7,11 @@
 
     <h1 class="titre text-center text-white">Choisissez votre equipe</h1>
 
-    <div class="affichageEquipe row my-5 text-white">
+    <div class="affichageEquipe row my-5">
 
             <div class=" bordure">
                 @foreach ($equipes as $item)
-                    <div class="row my-3 text-center">
+                    <div class="row my-3">
                         <div class="col-6 dddd">
                             <label class="form-check-label" for="exampleRadios1">
                                 {{$item->equipe}}

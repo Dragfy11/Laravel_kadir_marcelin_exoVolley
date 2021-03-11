@@ -14,7 +14,7 @@
                         @if($item->equipes_id === $equipes->id)
 
                             <div class="carte-liste carte{{$counter}}" style="background-image: url('{{asset('img/carte.png')}}')">
-                                <img class="contact-liste" src="{{asset('images/' . $item->photo)}}" alt="">
+                                <img class="contact-liste" src="{{asset('storage/images/' . $item->photo)}}" alt="">
                             </div>
                             <p hidden>{{$counter++}}</p>
                         @endif

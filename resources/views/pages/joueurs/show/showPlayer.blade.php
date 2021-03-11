@@ -20,7 +20,7 @@
     
         <div class="col-6">
             <div class="carte-show" style="background-image: url('{{asset('img/carte.png')}}')">
-                <img class="contact-show" src="{{asset('images/' . $profil->photo)}}" alt="">
+                <img class="contact-show" src="{{asset('/storage/images/' . $profil->photo)}}" alt="">
             </div>
         </div>  
 
