@@ -38,14 +38,14 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
-        $equipe=new Equipe;
-        $equipe->equipe=$request->equipe;
-        $equipe->coach=$request->coach;
-        $equipe->ville=$request->ville;
-        $equipe->nombres=$request->nombres;
-        $equipe->pays_id=$request->pays_id;
-        $equipe->membres=0;
-        $equipe->save();
+        $team=new Equipe;
+        $team->equipe=$request->equipe;
+        $team->coach=$request->coach;
+        $team->ville=$request->ville;
+        $team->nombres=$request->nombres;
+        $team->pays_id=$request->pays_id;
+        $team->membres=0;
+        $team->save();
     }
 
     /**

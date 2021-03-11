@@ -50,11 +50,11 @@ class EquipeController extends Controller
      */
     public function show(Equipe $equipe)
     {
-        $profil =  Profil::all();
-        $equipe=Equipe::find($id);
-        $postes =  Poste::all();
+        $profile =  Profil::all();
+        $team=Equipe::find($id);
+        $posts =  Poste::all();
         $counter = 1;
-        return view('pages.Joueur.show.showEquipe', compact('counter','profil','equipes','postes'));
+        return view('pages.Player.show.showTeam', compact('counter','profile','team','posts'));
     }
 
     /**
