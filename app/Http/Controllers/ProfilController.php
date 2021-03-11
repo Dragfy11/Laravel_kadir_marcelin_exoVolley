@@ -65,7 +65,7 @@ class ProfilController extends Controller
         $validateForm = $request->validate([
             "nom" => "string|required",
             "prenom" => "string|required",
-            "age" => "integer|required",
+            "age" => "string|required",
             "numeros" => "string|required",
             "email" => "required",
             "genre" => "required",

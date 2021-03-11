@@ -38,6 +38,15 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
+        $validationPays=$request->validate([
+            "equipe" => "string|required",
+            "coach" => "string|required",
+            "ville" => "string|required",
+            "numbres" => "string|required",
+            "pays_id" => "required",
+            "membres" => "required",
+        ]);
+
         $team=new Equipe;
         $team->equipe=$request->equipe;
         $team->coach=$request->coach;
