@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <h1 class="titre">{{$equipes->equipe}}</h1>
+    <h1 class="titre text-danger text-center">{{$equipes->equipe}}</h1>
     <div class="row centrer">
 
         <div class="col-10 ">
@@ -72,7 +72,7 @@
         </div>
         </div>
     </div>
-    </div>
+
 
 
 
