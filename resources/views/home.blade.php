@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-
+    test
     @include('components.footer')
 
 
