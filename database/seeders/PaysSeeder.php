@@ -28,6 +28,10 @@ class PaysSeeder extends Seeder
                 'continent' => 'Europe'
             ],
             [
+                'pays' => 'Japon',
+                'continent' => 'Asie'
+            ],
+            [
                 'pays' => 'Rien',
                 'continent' => 'Rien'
             ],
