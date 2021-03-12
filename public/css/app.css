@@ -10050,15 +10050,15 @@ h3 {
 }
 
 .carte1 {
-  margin: 160px 0px 0px 180px;
+  margin: 350px 0px 0px 180px;
 }
 
 .carte2 {
-  margin: 280px 0px 0px 160px;
+  margin: 430px 0px 0px 160px;
 }
 
 .carte3 {
-  margin: 400px 0px 0px 140px;
+  margin: 510px 0px 0px 140px;
 }
 
 .carte4 {
@@ -10143,5 +10143,79 @@ h3 {
   color: #b5d83e;
 }
 .sidenav2 .titre-nav {
+  padding: 0px;
+}
+
+.carte-show {
+  width: 400px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+
+.contact-show {
+  width: 210px;
+  height: 250px;
+  margin: 65px 0px 0px 20px;
+}
+
+.show {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.texte-show {
+  font-size: 35px;
+  font-family: "Shadows Into Light", cursive;
+}
+
+footer {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 20px;
+  position: relative;
+  margin-top: 15vh;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #172f40;
+  overflow-x: hidden;
+}
+
+.sidenav img {
+  padding-top: 10px;
+  padding-left: 20px;
+  width: 150px;
+}
+.sidenav h5 {
+  padding-bottom: 90px;
+  color: #818181;
+  font-family: "Shadows Into Light", cursive;
+  text-align: center;
+  font-size: 30px;
+}
+.sidenav h5:hover {
+  color: #f1f1f1;
+}
+.sidenav a {
+  padding: 15px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #818181;
+  display: block;
+}
+.sidenav a:hover {
+  color: #b5d83e;
+}
+.sidenav .titre-nav {
   padding: 0px;
 }

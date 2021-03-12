@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="titre mb-5">Infos Joueur</h1>
+        <h1 class="titre mb-5 text-center text-danger">Infos Joueur</h1>
 
     <div class="row d-flex show">
         

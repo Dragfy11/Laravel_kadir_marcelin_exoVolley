@@ -30,7 +30,7 @@ class EquipeSeeder extends Seeder
                  'ville' => 'Barcelone',
                  'nombres' => '2',
                  'pays_id' => 3,
-                 'membres' => 1,
+                 'membres' => 2,
 
 
              ],
@@ -40,7 +40,7 @@ class EquipeSeeder extends Seeder
                  'ville' => 'Madrid',
                  'nombres' => '5',
                  'pays_id' => 3,
-                 'membres' => 2,
+                 'membres' => 3,
 
              ],
              [

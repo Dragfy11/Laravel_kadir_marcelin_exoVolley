@@ -88,7 +88,7 @@ class ProfilSeeder extends Seeder
                'origin' => 'Japan',
                'photo' => 'jiraya.jpg',
                'equipes_id' => 2,
-               'poste_id' => 2,
+               'poste_id' => 3,
             ],
          ]);
     }
