@@ -8,7 +8,7 @@
     
         <div class=" text-white my-3">
             
-            <h1 class="titre2 pb-5 pt-5"> Equipes remplies au hasard</h1>
+            <h1 class="titre2 pb-5 pt-5"> Equipe remplie au hasard</h1>
     
             @foreach ($teamHasard as $item)
                 @if ($item->nombres==$item->membres)       
@@ -19,7 +19,7 @@
         
         <div class="text-white my-3">
          
-                <h1 class="titre2 pb-5 pt-5">4 joueurs sans equipes au hasard</h1>
+                <h1 class="titre2 pb-5 pt-5">4 joueurs sans equipe au hasard</h1>
         
                 @foreach ($teamHasardJ as $elem)
                     <h5 class="text-center">{{$elem->nom}}</h5>
@@ -75,7 +75,7 @@
     
         <div class="text-white text-center">
          
-            <h1 class="titre2 pb-5 pt-5"> les joueurs qui représente leur pays( meme pays dorigine que l'équipe dans la quelle ils jouent ) </h1>
+            <h1 class="titre2 pb-5 pt-5"> les joueurs qui représentent leur pays (meme pays dorigine que l'équipe dans la quelle ils jouent) </h1>
     
             @foreach ($equipe as $elem)
                 @foreach ($profil as $item)
@@ -89,7 +89,7 @@
     
         <div class="text-white text-center">
          
-            <h1 class="titre2 pb-5 pt-5"> 5 joueues au hasard qui ont une équipe ! </h1>
+            <h1 class="titre2 pb-5 pt-5"> 5 joueuses au hasard qui ont une équipe ! </h1>
     
             @foreach ($fille as $elem)
                 <h5 class="text-center">{{$elem->nom}}</h5>
@@ -99,7 +99,7 @@
 
         <div class="text-white text-center">
          
-            <h1 class="titre2 pb-5 pt-5"> 5 joueurs homme et qui ont une équipe ! </h1>
+            <h1 class="titre2 pb-5 pt-5"> 5 joueurs au hasard et qui ont une équipe ! </h1>
     
                 @foreach ($homme as $elem)
                     <h5 class="text-center">{{$elem->nom}}</h5>

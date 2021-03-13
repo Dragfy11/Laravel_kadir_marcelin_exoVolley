@@ -10174,7 +10174,6 @@ h3 {
 }
 
 footer {
-  font-family: "Shadows Into Light", cursive;
   font-size: 20px;
   position: relative;
   margin-top: 15vh;
@@ -10218,4 +10217,43 @@ footer {
 }
 .sidenav .titre-nav {
   padding: 0px;
+}
+.bodyImg{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover ;
+}
+.banner{
+  height: 50vh;
+  width: 100%;
+  position: relative;
+}
+.bannerTitle{
+  position:absolute;
+  top: 40%;
+}
+.bannerContent{
+  position: absolute;
+  top: 45%;
+}
+.rem2{
+  font-size: 2rem;
+}
+.radiusRL{
+border-radius: 0% 50px 50px 0%;
+}
+.w20{
+  width: 20%;
+}
+.w10{
+  width: 10%;
+}
+.rem15{
+  font-size: 1.5rem;
+}
+.bgBtn{
+  background-color: firebrick !important;
+}
+ul{
+  list-style: none;
 }

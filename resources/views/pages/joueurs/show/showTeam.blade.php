@@ -63,7 +63,7 @@
                                 </tbody>
                             </table>
         
-                            <h2 class="mt-5 text-center">Possibilité de joueur dans l'equipe : {{$equipes->nombres}}</h2>
+                            <h2 class="mt-5 text-center">Possibilité de joueurs dans l'equipe : {{$equipes->nombres}}</h2>
                             <h3 class="mb-5 text-center">Vous etes a {{$equipes->membres}} membres !</h3>
         
                         </div>

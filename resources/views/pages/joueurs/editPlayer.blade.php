@@ -2,10 +2,8 @@
 
 @section('content')
     
-    <h1 class="titre mb-5">...</h1>
-
-
-    <form action="/modifier-joueur/{{$profil->id}}" enctype="multipart/form-data" class="bg-white container pt-2 pb-5 px-4 border border-dark rounded" method="post">
+    
+    <form action="/modifier-joueur/{{$profil->id}}" enctype="multipart/form-data" class="bg-white container my-5 pt-2 pb-5 px-4 border border-dark rounded" method="post">
         @csrf
         <h1 class="titre2 text-dark">Modification du joueur</h1>
 

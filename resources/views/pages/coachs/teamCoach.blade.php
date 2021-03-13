@@ -3,7 +3,7 @@
 @section('content')
  
        
-<h1 class="titre text-center text-white">Créer votre équipes</h1>
+<h1 class="titre text-center text-white">Créer votre équipe</h1>
 <form action="/store-equipe" method="post">
     @csrf
     @if (session('status'))
