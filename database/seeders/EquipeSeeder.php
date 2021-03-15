@@ -21,7 +21,7 @@ class EquipeSeeder extends Seeder
                 'equipe' => "Pas d'equipe",
                 'ville' => 'Rien',
                 'nombres' => '10',
-                'pays_id' => 4,
+                'pays_id' => 5,
                 'membres' => 1,
              ],
              [
@@ -52,6 +52,15 @@ class EquipeSeeder extends Seeder
                  'membres' => 0,
 
              ],
+             [
+                'coach' => 'Loup',
+                'equipe' => 'Japan',
+                'ville' => 'Tokyio',
+                'nombres' => '6',
+                'pays_id' => 4,
+                'membres' => 1,
+
+            ],
          ]);
     }
 }

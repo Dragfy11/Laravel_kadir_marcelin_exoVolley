@@ -28,7 +28,7 @@ class PaysSeeder extends Seeder
                 'continent' => 'Europe'
             ],
             [
-                'pays' => 'Japon',
+                'pays' => 'Japan',
                 'continent' => 'Asie'
             ],
             [

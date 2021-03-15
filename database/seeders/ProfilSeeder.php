@@ -90,6 +90,18 @@ class ProfilSeeder extends Seeder
                'equipes_id' => 2,
                'poste_id' => 3,
             ],
+            [
+               'nom' => 'Loup',
+               'prenom' => "Garou",
+               'age' => 35,
+               'numeros' => '75435624252',
+               'email' => 'Loup-Garou@gmail.com',
+               'genre' => 'Homme',
+               'origin' => 'Japan',
+               'photo' => 'loup.jpg',
+               'equipes_id' => 5,
+               'poste_id' => 3,
+            ],
          ]);
     }
 }

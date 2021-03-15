@@ -75,14 +75,13 @@
     
         <div class="text-white text-center">
          
-            <h1 class="titre2 pb-5 pt-5"> les joueurs qui représentent leur pays (meme pays dorigine que l'équipe dans la quelle ils jouent) </h1>
+            <h1 class="titre2 pb-5 pt-5"> les joueurs qui représentent leur pays </h1>
     
-            @foreach ($equipe as $elem)
-                @foreach ($profil as $item)
-                    @if($elem->pays->pays==$item->origin)
+            @foreach ($profil as $item)
+                    @if($item->origin==$item->equipe->pays->pays)
                         <h5 class="text-center">{{$item->nom}}</h5>
                     @endif
-                @endforeach
+
             @endforeach
   
         </div>
